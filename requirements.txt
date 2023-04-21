@@ -1,0 +1,7 @@
+select
+platform
+re
+json
+urllib3
+colorama==0.4.4
+pyfiglet==0.8.post1
