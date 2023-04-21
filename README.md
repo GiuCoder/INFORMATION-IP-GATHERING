@@ -3,17 +3,7 @@ INFORMATION IP GATHERING is tool for gathering information from IP Adress
 
 # ABOUT TOOLS
 
- ___ _   _ _____ ___  ____  __  __    _  _____ ___ ___  _   _   ___ ____
-|_ _| \ | |  ___/ _ \|  _ \|  \/  |  / \|_   _|_ _/ _ \| \ | | |_ _|  _ \
- | ||  \| | |_ | | | | |_) | |\/| | / _ \ | |  | | | | |  \| |  | || |_) |
- | || |\  |  _|| |_| |  _ <| |  | |/ ___ \| |  | | |_| | |\  |  | ||  __/
-|___|_| \_|_|   \___/|_| \_\_|  |_/_/   \_\_| |___\___/|_| \_| |___|_|
-
-  ____    _  _____ _   _ _____ ____  ___ _   _  ____
- / ___|  / \|_   _| | | | ____|  _ \|_ _| \ | |/ ___|
-| |  _  / _ \ | | | |_| |  _| | |_) || ||  \| | |  _
-| |_| |/ ___ \| | |  _  | |___|  _ < | || |\  | |_| |
- \____/_/   \_\_| |_| |_|_____|_| \_\___|_| \_|\____|
+![INFORMATION IP GATHERING](https://raw.githubusercontent.com/GiuCoder/INFORMATION-IP-GATHERING/main/output-onlineasciitools%20(1).png)
 
 
 TOOL to gather information from given IP Address with python code.
