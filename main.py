@@ -1,13 +1,10 @@
 import select
-import tty
-import termios
 import platform
 import sys
 import os
 import re
 import json
 import urllib.request
-import msvcrt
 import time
 from colorama import init, Fore
 import pyfiglet
