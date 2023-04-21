@@ -1,3 +1,9 @@
+import select
+import tty
+import termios
+import platform
+import sys
+import os
 import re
 import json
 import urllib.request
@@ -6,10 +12,12 @@ import time
 from colorama import init, Fore
 import pyfiglet
 init(autoreset=True)
-import os
-import pyfiglet
-import sys
-import platform
+
+if sys.platform == 'win32':
+    import msvcrt
+else:
+    import termios
+    import tty
 
 
 def starter():
@@ -42,7 +50,6 @@ def is_valid_ip(ip):
         if all(0 <= int(part) <= 255 for part in parts):
             return True
     return False
-
 
 
 def get_ip_data(ip):
@@ -293,16 +300,31 @@ while True:
                 if value is None:
                     value = value if value else "Not available"
                 print(f'{key}: {value}')
-                
+
             # Print a message
             print("\n\nPress any key to continue...")
 
-            # Wait for the user to press a key
-            while not msvcrt.kbhit():
-                pass
+            if sys.platform == 'win32':
+                # Wait for the user to press a key
+                while not msvcrt.kbhit():
+                    pass
 
-            # Clear the keyboard buffer
-            msvcrt.getch()
+                # Clear the keyboard buffer
+                msvcrt.getch()
+            else:
+                # Set terminal settings to allow reading of single keystrokes
+                fd = sys.stdin.fileno()
+                old_settings = termios.tcgetattr(fd)
+                tty.setraw(fd)
+
+                # Wait for the user to press a key
+                rlist, _, _ = select.select([sys.stdin], [], [], None)
+                if rlist:
+                    # Read and discard the key
+                    sys.stdin.read(1)
+
+                # Restore terminal settings
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         else:
             print("Okay, goodbye!")
     else:
